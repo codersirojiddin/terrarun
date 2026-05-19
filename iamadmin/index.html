@@ -229,8 +229,8 @@
 
 <script type="module">
     import { auth, db } from '../firebase.js';
-    import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from 'firebase/auth';
-    import { doc, getDoc, setDoc, updateDoc, collection, addDoc, getDocs } from 'firebase/firestore';
+    import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+    import { doc, getDoc, setDoc, updateDoc, collection, addDoc, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
     function handleFirestoreError(error) {
         console.error('Firestore Error: ', error);
@@ -239,7 +239,7 @@
 
     // Check if already logged in via Firebase
     onAuthStateChanged(auth, (user) => {
-        if (user && user.email === 'sirojiddinyoqubjonov0105@gmail.com') {
+        if (user && user.email === 'codersirojiddin@gmail.com') {
             showDashboard();
         } else if (user) {
             // Log them out if it's the wrong email

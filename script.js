@@ -163,7 +163,7 @@ if (window.performance && window.performance.timing) {
 }
 
 import { db } from './firebase.js';
-import { doc, getDoc, collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
+import { doc, getDoc, collection, getDocs, query, orderBy, limit } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
 // Handle Dynamic Admin Content (Firestore Simulation)
 window.addEventListener('DOMContentLoaded', async () => {
