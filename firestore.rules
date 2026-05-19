@@ -14,7 +14,6 @@ service cloud.firestore {
     // Using user's email as the sole admin identifier
     function isAdmin() {
       return isSignedIn() &&
-             request.auth.token.email_verified == true &&
              request.auth.token.email == 'codersirojiddin@gmail.com';
     }
 

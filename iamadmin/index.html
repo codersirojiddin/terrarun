@@ -134,7 +134,11 @@
         <div style="font-size: 40px; margin-bottom: 16px;">🏃</div>
         <h2>Admin Portal</h2>
         <div class="error-msg" id="errorMsg">You must be the admin to access this.</div>
-        <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="attemptLogin()">Sign in with Google 🔒</button>
+        <div class="admin-form-group" style="text-align: left;">
+            <label style="color: var(--text2);">Admin Password</label>
+            <input type="password" id="adminPassword" placeholder="Enter password..." style="width: 100%; margin-top: 8px;" onkeydown="if(event.key === 'Enter') attemptLogin()">
+        </div>
+        <button class="btn-primary" style="width: 100%; justify-content: center; margin-top: 16px;" onclick="attemptLogin()">Login 🔒</button>
         <a href="../" style="display: block; margin-top: 20px; color: var(--text3); font-size: 13px; text-decoration: none;">← Back to Site</a>
     </div>
 </div>
@@ -229,8 +233,11 @@
 
 <script type="module">
     import { auth, db } from '../firebase.js';
-    import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+    import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
     import { doc, getDoc, setDoc, updateDoc, collection, addDoc, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    // The fixed admin email
+    const adminEmail = 'codersirojiddin@gmail.com';
 
     function handleFirestoreError(error) {
         console.error('Firestore Error: ', error);
@@ -251,11 +258,29 @@
     });
 
     window.attemptLogin = async function() {
-        const provider = new GoogleAuthProvider();
+        const err = document.getElementById('errorMsg');
+        const pwd = document.getElementById('adminPassword').value;
+        err.style.display = 'none';
+
+        if (!pwd) {
+            err.style.display = 'block';
+            err.innerText = "Password is required.";
+            return;
+        }
+
         try {
-            await signInWithPopup(auth, provider);
+            const result = await signInWithEmailAndPassword(auth, adminEmail, pwd);
+            if (result.user.email !== adminEmail) {
+                await signOut(auth);
+                err.style.display = 'block';
+                err.innerText = "You must be the admin to access this.";
+            } else {
+                showDashboard();
+            }
         } catch(error) {
             console.error("Login failed", error);
+            err.style.display = 'block';
+            err.innerText = "Login failed: Invalid password.";
         }
     };
 
