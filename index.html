@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TerraRun – Run the World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">🏃</div>
+    <span class="nav-logo-text">TerraRun</span>
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="/docs/index.html">Docs</a>
+    <a href="/about/index.html">About</a>
+    <a href="/blog/index.html">Blog</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="nav-actions">
+    <a href="#download" class="btn-ghost">v1.2 Released ↗</a>
+    <a href="src/TerraRun.apk" download class="btn-primary">⬇ Download APK</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#features" onclick="toggleMenu()">Features</a>
+  <a href="/docs/index.html" onclick="toggleMenu()">Docs</a>
+  <a href="/about/index.html" onclick="toggleMenu()">About</a>
+  <a href="/blog/index.html" onclick="toggleMenu()">Blog</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="src/TerraRun.apk" download class="btn-primary" style="margin-top:8px;justify-content:center;">⬇ Download APK</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div> 
+  <div class="hero-glow hero-glow-3"></div>
+
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    v1.2 Now Available — Free Download
+  </div>
+
+  <h1 class="hero-title">TERRA<span>RUN</span></h1>
+  <p class="hero-subtitle-large">RUN THE WORLD</p>
+
+  <p class="hero-desc">
+    The ultimate outdoor running companion. Real-time GPS tracking, adaptive pace coaching, terrain analysis — all in one powerful Android app.
+  </p>
+
+  <div class="hero-cta">
+    <a href="src/TerraRun.apk" download class="btn-download">
+      ⬇ Download for Android
+    </a>
+    <a href="#features" class="btn-download-ghost">
+      Explore Features →
+    </a>
+  </div>
+
+  <div class="hero-meta">
+    <span>📱 Android 8.0+</span>
+    <span>📦 12 MB</span>
+    <span>🔓 Free Forever</span>
+    <span>⭐ 4.9 / 5.0</span>
+  </div>
+
+  <div class="hero-mockup">
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="phone-route-line"></div>
+        <div class="phone-map-dots"></div>
+        <div class="phone-stat-card">
+          <div class="phone-stat-label">Current Run</div>
+          <div class="phone-stat-value">5.4 KM</div>
+          <div class="phone-progress">
+            <div class="phone-progress-bar"></div>
+          </div>
+        </div>
+        <div class="phone-stat-card" style="background:rgba(0,184,255,0.06);border-color:rgba(0,184,255,0.12)">
+          <div class="phone-stat-label">Elapsed Time</div>
+          <div class="phone-stat-value" style="color:var(--accent2)">28:14</div>
+        </div>
+        <div class="phone-bottom">
+          <div class="phone-pace-row">
+            <div class="phone-pace-item">
+              <div class="label">Pace</div>
+              <div class="value">5:12/km</div>
+            </div>
+            <div class="phone-pace-item">
+              <div class="label">BPM</div>
+              <div class="value" style="color:var(--accent3)">152</div>
+            </div>
+            <div class="phone-pace-item">
+              <div class="label">Elev.</div>
+              <div class="value">+84m</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS BAR ── -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <span class="stat-num">500K+</span>
+      <div class="stat-label">Active Runners</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <span class="stat-num">12M+</span>
+      <div class="stat-label">KM Tracked</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <span class="stat-num">4.9★</span>
+      <div class="stat-label">Average Rating</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <span class="stat-num">120+</span>
+      <div class="stat-label">Countries</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FEATURES ── -->
+<section id="features">
+  <div class="section-inner">
+    <p class="section-label reveal">What Makes Us Different</p>
+    <h2 class="section-title reveal">BUILT FOR<br>REAL RUNNERS</h2>
+    <p class="section-desc reveal">Every feature engineered for performance. No fluff, no subscriptions, no limits.</p>
+
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon fi-green">🛰️</div>
+        <h3 class="feature-title">GPS + Offline Maps</h3>
+        <p class="feature-desc">Sub-meter GPS accuracy with downloadable offline terrain maps. Run anywhere — mountains, trails, urban jungles — even without signal.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon fi-blue">⚡</div>
+        <h3 class="feature-title">Adaptive Pace Coach</h3>
+        <p class="feature-desc">AI-powered coaching that adapts to your terrain, elevation, and heart rate in real time. Push harder uphill, recover smart downhill.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon fi-orange">📊</div>
+        <h3 class="feature-title">Deep Analytics</h3>
+        <p class="feature-desc">Cadence, stride length, ground contact time, VO2 max estimates. Understand every run with pro-grade biomechanical data.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon fi-blue">🗺️</div>
+        <h3 class="feature-title">Route Builder</h3>
+        <p class="feature-desc">Draw custom routes or discover community-shared trails. Import GPX files. Share your best routes with the world.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon fi-green">👥</div>
+        <h3 class="feature-title">Live Challenges</h3>
+        <p class="feature-desc">Compete against friends in real-time. Weekly community challenges, virtual races, and leaderboards that keep you motivated.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon fi-orange">🔋</div>
+        <h3 class="feature-title">Battery Optimized</h3>
+        <p class="feature-desc">Ultra-efficient GPS mode delivers 6+ hours of tracking on a single charge. Run marathons without anxiety.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── DOWNLOAD ── -->
+<section id="download">
+  <div class="section-inner">
+    <div class="download-hero">
+      <p class="section-label reveal">Get Started</p>
+      <h2 class="section-title reveal">DOWNLOAD<br>TERRARUN</h2>
+      <p class="section-desc reveal" style="margin:0 auto 48px">Free, fast, and ready to run. Choose your version below.</p>
+    </div>
+
+    <div class="version-tabs">
+      <button class="version-tab active" onclick="setVersion('stable', this)">Stable v1.2</button>
+      <button class="version-tab" onclick="setVersion('beta', this)">Beta v1.3-beta</button>
+      <button class="version-tab" onclick="setVersion('legacy', this)">Legacy v1.0</button>
+    </div>
+
+    <div class="download-cards" id="downloadCards">
+      <!-- Stable -->
+      <div class="download-card featured reveal">
+        <div class="dc-platform">Android</div>
+        <div class="dc-name">TerraRun APK</div>
+        <div class="dc-version">Version <strong>1.2.0</strong> · Latest Stable</div>
+        <div class="dc-meta">
+          <span class="dc-meta-item">📦 12 MB</span>
+          <span class="dc-meta-item">📱 Android 8.0+</span>
+        </div>
+        <a href="src/TerraRun.apk" download class="btn-dl btn-dl-accent">⬇ Download APK</a>
+      </div>
+      <div class="download-card reveal reveal-delay-1">
+        <div class="dc-platform">Sideload Guide</div>
+        <div class="dc-name">Install Help</div>
+        <div class="dc-version">Step-by-step <strong>setup guide</strong></div>
+        <div class="dc-meta">
+          <span class="dc-meta-item">📖 3 min read</span>
+        </div>
+        <a href="#faq" class="btn-dl btn-dl-outline">Read Guide →</a>
+      </div>
+    </div>
+
+    <!-- Changelog -->
+    <div class="changelog reveal" style="margin-top:64px">
+      <div class="changelog-header">
+        <span class="changelog-title">WHAT'S NEW IN V1.2</span>
+        <span style="font-family:'Space Mono',monospace;font-size:11px;color:var(--text3)">May 2026</span>
+      </div>
+      <div class="changelog-item">
+        <span class="changelog-tag tag-new">NEW</span>
+        <div class="changelog-text">Adaptive Pace Coach — real-time terrain-aware pacing engine powered by gradient analysis</div>
+      </div>
+      <div class="changelog-item">
+        <span class="changelog-tag tag-new">NEW</span>
+        <div class="changelog-text">Offline Maps v2 — 40% smaller map tiles with improved rendering at high zoom levels</div>
+      </div>
+      <div class="changelog-item">
+        <span class="changelog-tag tag-imp">IMPROVED</span>
+        <div class="changelog-text">Battery optimization — ultra-efficient GPS mode now achieves 6+ hours continuous tracking</div>
+      </div>
+      <div class="changelog-item">
+        <span class="changelog-tag tag-imp">IMPROVED</span>
+        <div class="changelog-text">Live Challenges — new weekly leaderboards and real-time friend tracking</div>
+      </div>
+      <div class="changelog-item">
+        <span class="changelog-tag tag-fix">FIX</span>
+        <div class="changelog-text">Resolved GPS signal loss on devices running Android 14 with restricted background location</div>
+      </div>
+      <div class="changelog-item">
+        <span class="changelog-tag tag-fix">FIX</span>
+        <div class="changelog-text">Fixed route export failing for runs longer than 42km</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── BLOG ── -->
+<section id="blog">
+  <div class="section-inner">
+    <p class="section-label reveal">From the Team</p>
+    <h2 class="section-title reveal">LATEST POSTS</h2>
+    <p class="section-desc reveal">Insights, training guides, and product updates.</p>
+
+    <div class="blog-grid">
+      <a href="#" class="blog-card reveal">
+        <div class="blog-card-img">
+          <div class="blog-img-bg bi-green">🏔️</div>
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Training</span>
+          <div class="blog-card-title">How Terrain Data Transforms Your Pace Strategy</div>
+          <p class="blog-card-desc">We break down how TerraRun's elevation algorithms compute effort-adjusted pace — and why it matters more than raw speed.</p>
+          <div class="blog-meta">
+            <span>May 14, 2026</span>
+            <span>·</span>
+            <span>6 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="blog-side">
+        <a href="#" class="blog-card blog-card-sm reveal reveal-delay-1">
+          <div class="blog-card-img blog-card-img-sm">
+            <div class="blog-img-bg bi-orange">🚀</div>
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Product</span>
+            <div class="blog-card-title">Introducing v1.2 — Our Biggest Update Yet</div>
+            <div class="blog-meta" style="margin-top:8px">
+              <span>May 1, 2026</span>
+              <span>·</span>
+              <span>4 min read</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="blog-card blog-card-sm reveal reveal-delay-2">
+          <div class="blog-card-img blog-card-img-sm">
+            <div class="blog-img-bg bi-blue">💡</div>
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Tips</span>
+            <div class="blog-card-title">5 Hidden TerraRun Features You're Probably Missing</div>
+            <div class="blog-meta" style="margin-top:8px">
+              <span>Apr 22, 2026</span>
+              <span>·</span>
+              <span>5 min read</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="faq-layout">
+      <div>
+        <p class="section-label reveal">Got Questions?</p>
+        <h2 class="section-title reveal">FAQ</h2>
+        <p class="section-desc reveal" style="margin-bottom:0">Everything you need to know about TerraRun. Can't find your answer? Reach out to us directly.</p>
+        <br>
+        <a href="#" class="btn-ghost" style="margin-top:8px;display:inline-flex">Contact Support →</a>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do I install the APK on my Android device?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>Go to <strong>Settings → Security → Unknown Sources</strong> (or "Install unknown apps" on Android 8+) and enable it for your browser or file manager. Then download the APK and tap it to install. Takes under 30 seconds.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is TerraRun completely free? No subscriptions?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes — 100% free, forever. No hidden subscriptions, no premium tiers, no paywalls. Every feature in TerraRun is available to every user from day one.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What Android version do I need?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>TerraRun requires <strong>Android 8.0 (Oreo)</strong> or higher. For best performance and full GPS accuracy, we recommend Android 10+. The app has been tested on all major manufacturers.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Does it work without an internet connection?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. GPS tracking, offline maps, and run recording all work fully offline. You only need a connection to sync your runs to the cloud, download new maps, or join live challenges.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can I export my run data?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! TerraRun supports GPX and FIT file export. You can share your routes with any compatible app — Strava, Garmin Connect, Komoot, and more.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            When will iOS be available?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>We're actively working on an iOS version! Sign up for our newsletter to get notified the moment it launches. Our current target is late 2026.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── EVENTS ── -->
+<section id="events">
+  <div class="section-inner">
+    <p class="section-label reveal">Community</p>
+    <h2 class="section-title reveal">UPCOMING EVENTS</h2>
+    <p class="section-desc reveal">Join runs, virtual races, and challenges with the TerraRun community worldwide.</p>
+
+    <div class="events-grid">
+      <div class="event-card ec-green reveal">
+        <div class="event-date">07</div>
+        <div class="event-month">June 2026</div>
+        <div class="event-title">Global 5K Challenge</div>
+        <p class="event-desc">Run a 5K anywhere in the world on the same day. Track it with TerraRun and compete on the global leaderboard.</p>
+        <span class="event-badge eb-free">🌍 Free to Join</span>
+      </div>
+      <div class="event-card ec-blue reveal reveal-delay-1">
+        <div class="event-date">21</div>
+        <div class="event-month">June 2026</div>
+        <div class="event-title">Summer Solstice Run</div>
+        <p class="event-desc">Celebrate the longest day by running your longest route ever. Special badge for everyone who beats their personal best.</p>
+        <span class="event-badge eb-online">💻 Virtual</span>
+      </div>
+      <div class="event-card ec-orange reveal reveal-delay-2">
+        <div class="event-date">12</div>
+        <div class="event-month">July 2026</div>
+        <div class="event-title">v2.0 Beta Launch Party</div>
+        <p class="event-desc">Be the first to test TerraRun v2.0. Early access, exclusive features, and a sneak peek at what's coming next.</p>
+        <span class="event-badge eb-paid">🔥 Beta Testers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:16px">
+          <div class="nav-logo-icon">🏃</div>
+          <span class="nav-logo-text">TerraRun</span>
+        </div>
+        <p>The open-source outdoor running app built by runners, for runners. Free forever. No compromises.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn">𝕏</a>
+          <a href="#" class="social-btn">in</a>
+          <a href="#" class="social-btn">gh</a>
+          <a href="#" class="social-btn">yt</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Product</div>
+        <ul class="footer-col-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#download">Download</a></li>
+          <li><a href="#">Changelog</a></li>
+          <li><a href="#">Roadmap</a></li>
+          <li><a href="#">Beta Program</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <ul class="footer-col-links">
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#">API Docs</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-col-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 TerraRun. Free & Open Source.</p>
+      <span class="footer-version">v1.2.0 — Stable</span>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>

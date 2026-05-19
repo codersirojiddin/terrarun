@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog – TerraRun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <a href="../" class="nav-logo">
+        <div class="nav-logo-icon">🏃</div>
+        <span class="nav-logo-text">TerraRun</span>
+    </a>
+    <div class="nav-links">
+        <a href="../#features">Features</a>
+        <a href="../docs/">Docs</a>
+        <a href="../about/">About</a>
+        <a href="./" style="color:var(--accent)">Blog</a>
+        <a href="../#faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+        <a href="../#download" class="btn-ghost">v1.2 Released ↗</a>
+        <a href="../src/TerraRun.apk" download class="btn-primary">⬇ Download APK</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="../" onclick="toggleMenu()">Home</a>
+    <a href="../#features" onclick="toggleMenu()">Features</a>
+    <a href="../docs/" onclick="toggleMenu()">Docs</a>
+    <a href="../about/" onclick="toggleMenu()">About</a>
+    <a href="./" onclick="toggleMenu()" style="color:var(--accent)">Blog</a>
+    <a href="../#faq" onclick="toggleMenu()">FAQ</a>
+    <a href="../src/TerraRun.apk" download class="btn-primary" style="margin-top:8px;justify-content:center;">⬇ Download APK</a>
+</div>
+
+<!-- ── BLOG HERO ── -->
+<section class="blog-hero">
+    <div class="section-inner">
+        <h1>Blog</h1>
+        <p>Stories, tips, and updates from the TerraRun team</p>
+    </div>
+</section>
+
+<!-- ── BLOG POSTS ── -->
+<section class="blog-section">
+    <div class="section-inner">
+        <div class="blog-posts-grid">
+            <!-- Featured Post -->
+            <article class="blog-post featured-post reveal">
+                <div class="blog-post-img" style="background:linear-gradient(135deg,rgba(0,229,160,0.15),rgba(0,184,255,0.1));font-size:80px;display:flex;align-items:center;justify-content:center;">
+                    🚀
+                </div>
+                <div class="blog-post-content">
+                    <div class="blog-post-meta">
+                        <span class="blog-post-tag">Product</span>
+                        <span class="blog-post-date">May 1, 2026</span>
+                    </div>
+                    <h2>Introducing v1.2 — Our Biggest Update Yet</h2>
+                    <p>
+                        We're thrilled to announce TerraRun v1.2, featuring our brand-new Adaptive Pace Coach, improved offline maps, and significant battery optimizations. This is the result of 6 months of development and community feedback.
+                    </p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+            </article>
+
+            <!-- Recent Posts Grid -->
+            <div class="blog-posts-column">
+                <article class="blog-post-sm reveal reveal-delay-1">
+                    <div class="blog-post-img-sm" style="background:linear-gradient(135deg,rgba(0,184,255,0.15),rgba(100,0,255,0.1));font-size:40px;display:flex;align-items:center;justify-content:center;">
+                        💡
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span class="blog-post-tag">Tips</span>
+                            <span class="blog-post-date">May 14, 2026</span>
+                        </div>
+                        <h3>5 Hidden TerraRun Features You're Probably Missing</h3>
+                        <p>Discover lesser-known features that can take your running analytics to the next level.</p>
+                        <a href="#" class="read-more-sm">Read →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post-sm reveal reveal-delay-2">
+                    <div class="blog-post-img-sm" style="background:linear-gradient(135deg,rgba(255,107,53,0.15),rgba(255,200,0,0.1));font-size:40px;display:flex;align-items:center;justify-content:center;">
+                        🏔️
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span class="blog-post-tag">Training</span>
+                            <span class="blog-post-date">May 7, 2026</span>
+                        </div>
+                        <h3>How Terrain Data Transforms Your Pace Strategy</h3>
+                        <p>Understanding elevation changes can help you run smarter, not just harder.</p>
+                        <a href="#" class="read-more-sm">Read →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- All Posts -->
+        <div class="all-posts" style="margin-top:80px;">
+            <h2 style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:2px;margin-bottom:40px;">All Articles</h2>
+
+            <article class="blog-list-item reveal">
+                <div class="blog-list-date">May 14, 2026</div>
+                <div class="blog-list-content">
+                    <h3>5 Hidden TerraRun Features You're Probably Missing</h3>
+                    <p>Discover lesser-known features that can take your running analytics to the next level.</p>
+                    <div class="blog-list-meta">
+                        <span class="blog-post-tag">Tips</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+                <a href="#" class="blog-list-link">→</a>
+            </article>
+
+            <article class="blog-list-item reveal reveal-delay-1">
+                <div class="blog-list-date">May 7, 2026</div>
+                <div class="blog-list-content">
+                    <h3>How Terrain Data Transforms Your Pace Strategy</h3>
+                    <p>We break down how TerraRun's elevation algorithms compute effort-adjusted pace — and why it matters.</p>
+                    <div class="blog-list-meta">
+                        <span class="blog-post-tag">Training</span>
+                        <span>6 min read</span>
+                    </div>
+                </div>
+                <a href="#" class="blog-list-link">→</a>
+            </article>
+
+            <article class="blog-list-item reveal reveal-delay-2">
+                <div class="blog-list-date">May 1, 2026</div>
+                <div class="blog-list-content">
+                    <h3>Introducing v1.2 — Our Biggest Update Yet</h3>
+                    <p>Adaptive Pace Coach, improved offline maps, better battery optimization, and community features.</p>
+                    <div class="blog-list-meta">
+                        <span class="blog-post-tag">Product</span>
+                        <span>8 min read</span>
+                    </div>
+                </div>
+                <a href="#" class="blog-list-link">→</a>
+            </article>
+
+            <article class="blog-list-item reveal">
+                <div class="blog-list-date">Apr 22, 2026</div>
+                <div class="blog-list-content">
+                    <h3>Running Smarter: A Guide to Heart Rate Zones</h3>
+                    <p>Learn how to use heart rate training to improve endurance and speed without overtraining.</p>
+                    <div class="blog-list-meta">
+                        <span class="blog-post-tag">Training</span>
+                        <span>7 min read</span>
+                    </div>
+                </div>
+                <a href="#" class="blog-list-link">→</a>
+            </article>
+
+            <article class="blog-list-item reveal reveal-delay-1">
+                <div class="blog-list-date">Apr 15, 2026</div>
+                <div class="blog-list-content">
+                    <h3>Announcing Our Community Ambassador Program</h3>
+                    <p>Become a TerraRun ambassador and help shape the future of running software.</p>
+                    <div class="blog-list-meta">
+                        <span class="blog-post-tag">Community</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>
+                <a href="#" class="blog-list-link">→</a>
+            </article>
+
+            <article class="blog-list-item reveal reveal-delay-2">
+                <div class="blog-list-date">Apr 8, 2026</div>
+                <div class="blog-list-content">
+                    <h3>TerraRun Reaches 500K Active Users</h3>
+                    <p>Thank you! Here's how we're celebrating and what's next for the platform.</p>
+                    <div class="blog-list-meta">
+                        <span class="blog-post-tag">Milestone</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+                <a href="#" class="blog-list-link">→</a>
+            </article>
+
+            <article class="blog-list-item reveal">
+                <div class="blog-list-date">Apr 1, 2026</div>
+                <div class="blog-list-content">
+                    <h3>Open Source Release: TerraRun Core Libraries</h3>
+                    <p>We're open-sourcing our GPS processing and analytics libraries for the community.</p>
+                    <div class="blog-list-meta">
+                        <span class="blog-post-tag">Open Source</span>
+                        <span>6 min read</span>
+                    </div>
+                </div>
+                <a href="#" class="blog-list-link">→</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+    <div class="section-inner">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Get product updates, running tips, and community news delivered to your inbox</p>
+        <div class="newsletter-form">
+            <input type="email" placeholder="Enter your email..." required>
+            <button class="btn-primary">Subscribe</button>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="nav-logo" style="margin-bottom:16px">
+                    <div class="nav-logo-icon">🏃</div>
+                    <span class="nav-logo-text">TerraRun</span>
+                </div>
+                <p>The open-source outdoor running app built by runners, for runners. Free forever. No compromises.</p>
+            </div>
+
+            <div>
+                <div class="footer-col-title">Product</div>
+                <ul class="footer-col-links">
+                    <li><a href="../#features">Features</a></li>
+                    <li><a href="../#download">Download</a></li>
+                    <li><a href="../docs/">Documentation</a></li>
+                    <li><a href="#">Roadmap</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="footer-col-title">Resources</div>
+                <ul class="footer-col-links">
+                    <li><a href="../docs/">Docs</a></li>
+                    <li><a href="../#faq">FAQ</a></li>
+                    <li><a href="./">Blog</a></li>
+                    <li><a href="#">API Docs</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="footer-col-title">Company</div>
+                <ul class="footer-col-links">
+                    <li><a href="../about/">About</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 TerraRun. Free & Open Source.</p>
+            <span class="footer-version">v1.2.0 — Stable</span>
+        </div>
+    </div>
+</footer>
+
+<script type="module" src="../script.js"></script>
+<style>
+.blog-hero {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border-bottom: 1px solid var(--border);
+    padding-top: var(--nav-h);
+    padding-bottom: 80px;
+}
+
+.blog-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 80px);
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.blog-hero p {
+    font-size: 20px;
+    color: var(--text2);
+    font-weight: 300;
+}
+
+.blog-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 32px;
+}
+
+.blog-posts-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+    margin-bottom: 80px;
+}
+
+.featured-post {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.featured-post:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border-color: var(--border2);
+}
+
+.blog-post-img {
+    width: 100%;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-post-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(8, 12, 16, 0.6) 100%);
+}
+
+.blog-post-content {
+    padding: 32px;
+}
+
+.blog-post-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.blog-post-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+    background: rgba(0, 229, 160, 0.1);
+    border: 1px solid rgba(0, 229, 160, 0.2);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.blog-post-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+}
+
+.featured-post h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.blog-post-content p {
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.8;
+    margin-bottom: 24px;
+    font-weight: 300;
+}
+
+.read-more {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.read-more:hover {
+    color: var(--accent2);
+}
+
+.blog-posts-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.blog-post-sm {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+.blog-post-sm:hover {
+    transform: translateY(-2px);
+    border-color: var(--border2);
+}
+
+.blog-post-img-sm {
+    width: 100%;
+    height: 140px;
+    margin: -20px -20px 16px -20px;
+    border-radius: 12px 12px 0 0;
+}
+
+.blog-post-sm h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.blog-post-sm p {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.read-more-sm {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+    transition: color 0.2s;
+}
+
+.read-more-sm:hover {
+    color: var(--accent2);
+}
+
+.all-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.blog-list-item {
+    background: var(--surface);
+    padding: 24px 28px;
+    display: grid;
+    grid-template-columns: 120px 1fr 40px;
+    gap: 32px;
+    align-items: center;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.blog-list-item:hover {
+    background: var(--surface2);
+}
+
+.blog-list-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--text3);
+    letter-spacing: 1px;
+}
+
+.blog-list-content h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    color: var(--text);
+}
+
+.blog-list-content p {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+    margin-bottom: 8px;
+    font-weight: 300;
+}
+
+.blog-list-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    color: var(--text3);
+}
+
+.blog-list-link {
+    color: var(--accent);
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s;
+}
+
+.blog-list-link:hover {
+    color: var(--accent2);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.newsletter-form input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.newsletter-form input::placeholder {
+    color: var(--text3);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--surface2);
+}
+
+.newsletter-form button {
+    min-width: 140px;
+}
+
+@media (max-width: 900px) {
+    .blog-posts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-list-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .blog-list-link {
+        order: -1;
+    }
+}
+</style>
+</body>
+</html>

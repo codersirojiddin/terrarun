@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard – TerraRun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300..600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body { background: var(--bg); display: flex; flex-direction: column; min-height: 100vh; }
+        
+        /* Login Screen */
+        #login-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 20px;
+        }
+        .login-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        .login-box h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            color: var(--accent);
+        }
+        .login-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--surface2);
+            border: 1px solid var(--border2);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: 'Space Mono', monospace;
+            margin-bottom: 20px;
+            outline: none;
+        }
+        .login-input:focus { border-color: var(--accent); }
+        .error-msg { color: var(--accent3); font-size: 13px; margin-bottom: 16px; display: none; }
+
+        /* Dashboard */
+        #admin-dashboard { display: none; flex: 1; padding: 40px 32px; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .dashboard-header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            letter-spacing: 2px;
+        }
+        
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .admin-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .admin-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            color: var(--accent2);
+        }
+        
+        .admin-form-group { margin-bottom: 16px; }
+        .admin-form-group label {
+            display: block;
+            font-size: 12px;
+            color: var(--text3);
+            text-transform: uppercase;
+            font-family: 'Space Mono', monospace;
+            margin-bottom: 8px;
+        }
+        .admin-form-group input, .admin-form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background: var(--surface2);
+            border: 1px solid var(--border2);
+            border-radius: 6px;
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+        }
+        .admin-form-group textarea { resize: vertical; min-height: 80px; }
+        
+        .admin-stats-big {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            color: var(--accent);
+            line-height: 1;
+        }
+        
+        .notice-banner {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-left: 4px solid var(--accent3);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            font-size: 14px;
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Login Screen -->
+<div id="login-screen">
+    <div class="login-box">
+        <div style="font-size: 40px; margin-bottom: 16px;">🏃</div>
+        <h2>Admin Portal</h2>
+        <div class="error-msg" id="errorMsg">You must be the admin to access this.</div>
+        <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="attemptLogin()">Sign in with Google 🔒</button>
+        <a href="../" style="display: block; margin-top: 20px; color: var(--text3); font-size: 13px; text-decoration: none;">← Back to Site</a>
+    </div>
+</div>
+
+<!-- Dashboard -->
+<div id="admin-dashboard">
+    <div class="notice-banner">
+        <strong>⚠️ Static Site Notice:</strong> Changes made here are saved directly in your browser's LocalStorage to simulate the CMS. Because this site is hosted statically on GitHub Pages, we cannot permanently overwrite the actual HTML files for all users without a database. For permanent worldwide changes, connect a database like Firebase.
+    </div>
+
+    <div class="dashboard-header">
+        <h1>Control Panel</h1>
+        <div>
+            <a href="../" class="btn-ghost" style="margin-right: 12px;">View Site ↗</a>
+            <button class="btn-ghost" style="color: var(--accent3); border-color: rgba(255,107,53,0.3);" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="admin-grid">
+        <!-- Live Stats -->
+        <div class="admin-card">
+            <h3>App Downloads 📊</h3>
+            <p style="color: var(--text2); font-size: 13px; margin-bottom: 16px;">Track how many users have downloaded the TerraRun APK.</p>
+            <div class="admin-stats-big" id="downloadCountDisplay">502,149</div>
+            <div style="margin-top: 16px; display: flex; gap: 8px;">
+                <button class="btn-ghost" onclick="incrementDownloads(100)">+100</button>
+                <button class="btn-ghost" onclick="incrementDownloads(1000)">+1000</button>
+            </div>
+        </div>
+
+        <!-- Global Announcement -->
+        <div class="admin-card">
+            <h3>Global Announcement 📢</h3>
+            <p style="color: var(--text2); font-size: 13px; margin-bottom: 16px;">Post a persistent banner at the top of the homepage.</p>
+            <div class="admin-form-group">
+                <label>Announcement Text</label>
+                <textarea id="announcementText" placeholder="e.g., TerraRun v1.3 Beta is rolling out this week!"></textarea>
+            </div>
+            <button class="btn-primary" onclick="saveAnnouncement()">Publish Banner</button>
+        </div>
+
+        <!-- Manage Events -->
+        <div class="admin-card">
+            <h3>Manage Events 📅</h3>
+            <p style="color: var(--text2); font-size: 13px; margin-bottom: 16px;">Update the featured upcoming event on the homepage.</p>
+            <div class="admin-form-group">
+                <label>Event Name</label>
+                <input type="text" id="eventName" placeholder="e.g., Global 5K Challenge">
+            </div>
+            <div class="admin-form-group">
+                <label>Event Date</label>
+                <input type="text" id="eventDate" placeholder="e.g., August 15, 2026">
+            </div>
+            <button class="btn-primary" onclick="saveEvent()">Update Event</button>
+        </div>
+
+        <!-- Manage Team Members -->
+        <div class="admin-card">
+            <h3>Team Members 👥</h3>
+            <p style="color: var(--text2); font-size: 13px; margin-bottom: 16px;">Add a new featured team member to the About page.</p>
+            <div class="admin-form-group">
+                <label>Name</label>
+                <input type="text" id="teamName" placeholder="Full Name">
+            </div>
+            <div class="admin-form-group">
+                <label>Role</label>
+                <input type="text" id="teamRole" placeholder="e.g., Lead Developer">
+            </div>
+            <div class="admin-form-group">
+                <label>Short Bio</label>
+                <textarea id="teamBio" placeholder="A brief description of their impact..."></textarea>
+            </div>
+            <button class="btn-primary" onclick="saveTeamMember()">Add Member</button>
+        </div>
+
+        <!-- Quick Post to Blog -->
+        <div class="admin-card" style="grid-column: 1 / -1; max-width: 600px;">
+            <h3>Quick Blog Post ✍️</h3>
+            <p style="color: var(--text2); font-size: 13px; margin-bottom: 16px;">Draft a simple text update for the blog feed.</p>
+            <div class="admin-form-group">
+                <label>Post Title</label>
+                <input type="text" id="blogTitle" placeholder="Post Title">
+            </div>
+            <div class="admin-form-group">
+                <label>Excerpt / Content</label>
+                <textarea id="blogContent" style="min-height: 120px;" placeholder="What's new with TerraRun?"></textarea>
+            </div>
+            <button class="btn-primary" onclick="saveBlogPost()">Publish to Blog</button>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+    import { auth, db } from '../firebase.js';
+    import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from 'firebase/auth';
+    import { doc, getDoc, setDoc, updateDoc, collection, addDoc, getDocs } from 'firebase/firestore';
+
+    function handleFirestoreError(error) {
+        console.error('Firestore Error: ', error);
+        alert('Action failed: ' + (error.message || 'Unknown error'));
+    }
+
+    // Check if already logged in via Firebase
+    onAuthStateChanged(auth, (user) => {
+        if (user && user.email === 'sirojiddinyoqubjonov0105@gmail.com') {
+            showDashboard();
+        } else if (user) {
+            // Log them out if it's the wrong email
+            signOut(auth);
+            alert("You must be the admin to access this.");
+        } else {
+            showLogin();
+        }
+    });
+
+    window.attemptLogin = async function() {
+        const provider = new GoogleAuthProvider();
+        try {
+            await signInWithPopup(auth, provider);
+        } catch(error) {
+            console.error("Login failed", error);
+        }
+    };
+
+    window.logout = async function() {
+        await signOut(auth);
+    };
+
+    function showDashboard() {
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('admin-dashboard').style.display = 'block';
+        loadDashboardData();
+    }
+
+    function showLogin() {
+        document.getElementById('login-screen').style.display = 'flex';
+        document.getElementById('admin-dashboard').style.display = 'none';
+    }
+
+    // --- DASHBOARD ACTIONS (Firestore) ---
+    async function loadDashboardData() {
+        try {
+            const docRef = doc(db, 'settings', 'global');
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                document.getElementById('downloadCountDisplay').innerText = data.downloadsCount.toLocaleString();
+                document.getElementById('announcementText').value = data.announcement || '';
+                document.getElementById('eventName').value = data.featuredEventName || '';
+                document.getElementById('eventDate').value = data.featuredEventDate || '';
+            } else {
+                // Initialize default logic
+                await setDoc(docRef, {
+                    downloadsCount: 502149,
+                    announcement: '',
+                    featuredEventName: 'Global 5K Challenge',
+                    featuredEventDate: 'August 15, 2026'
+                });
+                document.getElementById('downloadCountDisplay').innerText = (502149).toLocaleString();
+            }
+        } catch (error) {
+            handleFirestoreError(error);
+        }
+    }
+
+    window.incrementDownloads = async function(amount) {
+        try {
+            const docRef = doc(db, 'settings', 'global');
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                let current = docSnap.data().downloadsCount;
+                let newCount = current + amount;
+                await updateDoc(docRef, { downloadsCount: newCount });
+                document.getElementById('downloadCountDisplay').innerText = newCount.toLocaleString();
+                alert(`Downloads increased! New count: ${newCount.toLocaleString()}`);
+            }
+        } catch (error) {
+            handleFirestoreError(error);
+        }
+    };
+
+    window.saveAnnouncement = async function() {
+        const text = document.getElementById('announcementText').value;
+        try {
+            const docRef = doc(db, 'settings', 'global');
+            await updateDoc(docRef, { announcement: text });
+            alert('Announcement published! Visit the homepage to see it.');
+        } catch (error) {
+            handleFirestoreError(error);
+        }
+    };
+
+    window.saveEvent = async function() {
+        const name = document.getElementById('eventName').value;
+        const date = document.getElementById('eventDate').value;
+        if(name && date) {
+            try {
+                const docRef = doc(db, 'settings', 'global');
+                await updateDoc(docRef, { featuredEventName: name, featuredEventDate: date });
+                alert('Event updated!');
+                document.getElementById('eventName').value = '';
+                document.getElementById('eventDate').value = '';
+            } catch (error) {
+                handleFirestoreError(error);
+            }
+        } else {
+            alert('Please fill out all fields.');
+        }
+    };
+
+    window.saveTeamMember = async function() {
+        const name = document.getElementById('teamName').value;
+        const role = document.getElementById('teamRole').value;
+        const bio = document.getElementById('teamBio').value;
+        
+        if(name && role && bio) {
+            try {
+                const memberId = 'member_' + Date.now();
+                await setDoc(doc(db, 'teamMembers', memberId), {
+                    name, role, bio, createdAt: Date.now()
+                });
+                
+                alert('Team member added to the About page!');
+                document.getElementById('teamName').value = '';
+                document.getElementById('teamRole').value = '';
+                document.getElementById('teamBio').value = '';
+            } catch (error) {
+                handleFirestoreError(error);
+            }
+        } else {
+            alert('Please fill out all fields.');
+        }
+    };
+
+    window.saveBlogPost = async function() {
+        const title = document.getElementById('blogTitle').value;
+        const content = document.getElementById('blogContent').value;
+        
+        if(title && content) {
+            try {
+                const postId = 'post_' + Date.now();
+                const dateLabel = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                await setDoc(doc(db, 'blogPosts', postId), {
+                    title, content, dateLabel, createdAt: Date.now()
+                });
+                
+                alert('Blog post published!');
+                document.getElementById('blogTitle').value = '';
+                document.getElementById('blogContent').value = '';
+            } catch (error) {
+                handleFirestoreError(error);
+            }
+        } else {
+            alert('Please fill out all fields.');
+        }
+    };
+</script>
+</body>
+</html>

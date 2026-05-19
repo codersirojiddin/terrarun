@@ -1,0 +1,75 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} { allow read, write: if false; }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+    
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    function isSignedIn() { return request.auth != null; }
+    
+    // Using user's email as the sole admin identifier
+    function isAdmin() {
+      return isSignedIn() &&
+             request.auth.token.email_verified == true &&
+             request.auth.token.email == 'sirojiddinyoqubjonov0105@gmail.com';
+    }
+
+    function isValidAppSettings(data) {
+      return data.keys().hasAll(['downloadsCount', 'announcement', 'featuredEventName', 'featuredEventDate']) && 
+             data.keys().size() == 4 &&
+             data.downloadsCount is number && 
+             data.announcement is string && data.announcement.size() <= 2000 &&
+             data.featuredEventName is string && data.featuredEventName.size() <= 200 &&
+             data.featuredEventDate is string && data.featuredEventDate.size() <= 100;
+    }
+
+    function isValidTeamMember(data) {
+      return data.keys().hasAll(['name', 'role', 'bio', 'createdAt']) && 
+             data.keys().size() == 4 &&
+             data.name is string && data.name.size() <= 100 &&
+             data.role is string && data.role.size() <= 100 &&
+             data.bio is string && data.bio.size() <= 2000 &&
+             data.createdAt is number;
+    }
+
+    function isValidBlogPost(data) {
+      return data.keys().hasAll(['title', 'content', 'dateLabel', 'createdAt']) && 
+             data.keys().size() == 4 &&
+             data.title is string && data.title.size() <= 150 &&
+             data.content is string && data.content.size() <= 10000 &&
+             data.dateLabel is string && data.dateLabel.size() <= 100 &&
+             data.createdAt is number;
+    }
+
+    match /settings/global {
+      allow read: if true;
+      allow create: if isAdmin() && isValidAppSettings(incoming());
+      allow update: if isAdmin() && isValidAppSettings(incoming()) && (
+        incoming().diff(existing()).affectedKeys().hasOnly(['downloadsCount', 'announcement', 'featuredEventName', 'featuredEventDate'])
+      );
+      allow delete: if isAdmin();
+    }
+
+    match /teamMembers/{memberId} {
+      allow read: if true;
+      allow create: if isAdmin() && isValidId(memberId) && isValidTeamMember(incoming()) && incoming().createdAt == request.time.toMillis();
+      allow update: if isAdmin() && isValidId(memberId) && isValidTeamMember(incoming()) && incoming().createdAt == existing().createdAt && (
+        incoming().diff(existing()).affectedKeys().hasOnly(['name', 'role', 'bio'])
+      );
+      allow delete: if isAdmin() && isValidId(memberId);
+    }
+
+    match /blogPosts/{postId} {
+      allow read: if true;
+      allow create: if isAdmin() && isValidId(postId) && isValidBlogPost(incoming()) && incoming().createdAt == request.time.toMillis();
+      allow update: if isAdmin() && isValidId(postId) && isValidBlogPost(incoming()) && incoming().createdAt == existing().createdAt && (
+        incoming().diff(existing()).affectedKeys().hasOnly(['title', 'content', 'dateLabel'])
+      );
+      allow delete: if isAdmin() && isValidId(postId);
+    }
+  }
+}

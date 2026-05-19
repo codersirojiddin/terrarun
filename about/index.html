@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About – TerraRun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <!-- ── NAV ── -->
+    <nav>
+      <a href="../" class="nav-logo">
+        <div class="nav-logo-icon">🏃</div>
+        <span class="nav-logo-text">TerraRun</span>
+      </a>
+      <div class="nav-links">
+        <a href="../#features">Features</a>
+        <a href="../docs/">Docs</a>
+        <a href="./" style="color: var(--accent)">About</a>
+        <a href="../blog/">Blog</a>
+        <a href="../#faq">FAQ</a>
+      </div>
+      <div class="nav-actions">
+        <a href="../#download" class="btn-ghost">v1.2 Released ↗</a>
+        <a href="../src/TerraRun.apk" download class="btn-primary"
+          >⬇ Download APK</a
+        >
+      </div>
+      <button class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="../" onclick="toggleMenu()">Home</a>
+      <a href="../#features" onclick="toggleMenu()">Features</a>
+      <a href="../docs/" onclick="toggleMenu()">Docs</a>
+      <a href="./" onclick="toggleMenu()" style="color: var(--accent)">About</a>
+      <a href="../blog/" onclick="toggleMenu()">Blog</a>
+      <a href="../#faq" onclick="toggleMenu()">FAQ</a>
+      <a
+        href="../src/TerraRun.apk"
+        download
+        class="btn-primary"
+        style="margin-top: 8px; justify-content: center"
+        >⬇ Download APK</a
+      >
+    </div>
+
+    <!-- ── ABOUT HERO ── -->
+    <section class="about-hero">
+      <div class="section-inner">
+        <div class="about-hero-content">
+          <h1>About TerraRun</h1>
+          <p class="about-hero-subtitle">
+            Built by runners, for runners. Free forever, no compromises.
+          </p>
+          <p class="about-hero-desc">
+            TerraRun is a free, open-source running app that gives you
+            professional-grade analytics without subscriptions or paywalls. We
+            believe running software should be transparent, powerful, and truly
+            free.
+          </p>
+          <div class="about-hero-cta">
+            <a href="../#download" class="btn-primary">Download Now</a>
+            <a href="https://github.com/terrarun/app" class="btn-ghost"
+              >View on GitHub</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STORY ── -->
+    <section class="about-section">
+      <div class="section-inner">
+        <div class="about-section-header">
+          <h2>Our Story</h2>
+        </div>
+        <p>
+          TerraRun started in 2026 when three competitive runners got frustrated
+          with expensive, ad-laden running apps. We believed there had to be a
+          better way—an app built by runners who understand what actually
+          matters when you're out on the trail or pavement.
+        </p>
+        <p>
+          We spent months researching what runners really want. GPS tracking?
+          Yes. Analytics? Absolutely. But also: no subscriptions, no dark
+          patterns, no selling your location data. Just honest software that
+          works.
+        </p>
+        <p>
+          Today, TerraRun is trusted by 100k+ runners in 70+ countries. We
+          remain free and independent, supported by the community that built it.
+        </p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── VALUES ── -->
+    <section class="about-section">
+      <div class="section-inner">
+        <h2 style="text-align: center; margin-bottom: 64px">Our Values</h2>
+
+        <div class="values-grid">
+          <div class="value-card reveal">
+            <div class="value-icon">🎯</div>
+            <h3>Focused</h3>
+            <p>
+              We don't do everything. We do running really, really well. No
+              feature bloat, no distractions.
+            </p>
+          </div>
+          <div class="value-card reveal reveal-delay-1">
+            <div class="value-icon">🔓</div>
+            <h3>Open</h3>
+            <p>
+              Source code, data formats, APIs — everything is open and
+              auditable. No black boxes.
+            </p>
+          </div>
+          <div class="value-card reveal reveal-delay-2">
+            <div class="value-icon">🤝</div>
+            <h3>Community</h3>
+            <p>
+              Built with feedback from runners like you. Your voice shapes
+              TerraRun's future.
+            </p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon">🔒</div>
+            <h3>Private</h3>
+            <p>
+              Your location data is yours. We don't track, sell, or share your
+              running history.
+            </p>
+          </div>
+          <div class="value-card reveal reveal-delay-1">
+            <div class="value-icon">⚡</div>
+            <h3>Fast</h3>
+            <p>
+              Optimized for performance. Ultra-efficient battery usage and
+              instant responsiveness.
+            </p>
+          </div>
+          <div class="value-card reveal reveal-delay-2">
+            <div class="value-icon">♾️</div>
+            <h3>Forever Free</h3>
+            <p>
+              No subscriptions, no paywalls, no premium tiers. Ever. That's our
+              promise.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── TEAM ── -->
+    <section class="about-section">
+      <div class="section-inner">
+        <h2 style="text-align: center; margin-bottom: 64px">Meet the Team</h2>
+
+        <div class="team-grid">
+          <div class="team-card reveal">
+            <div class="team-avatar">😊</div>
+            <h3 style="font-family: monospace">Sirojiddin Yoqubjonov</h3>
+            <p class="team-role">Founder & CEO</p>
+            <p class="team-bio">
+              Entrepreneur and product visionary behind TerraRun. Focused on
+              building technology that transforms everyday movement into global
+              competition.
+            </p>
+          </div>
+          <div class="team-card reveal reveal-delay-1">
+            <div class="team-avatar">🏃</div>
+            <h3 style="font-family: monospace">Ulug'bek Usmonov</h3>
+            <p class="team-role">CFO</p>
+            <p class="team-bio">
+              Oversees financial strategy, growth planning, and operational
+              sustainability across the TerraRun ecosystem.
+            </p>
+          </div>
+          <div class="team-card reveal reveal-delay-2">
+            <div class="team-avatar">💻</div>
+            <h3 style="font-family: monospace">Shohjahon Komilov</h3>
+            <p class="team-role">Operations Executive</p>
+            <p class="team-bio">
+              Drives operational execution across the TerraRun ecosystem,
+              ensuring every feature, update, and process is delivered
+              efficiently. Focused on scaling systems, improving productivity,
+              and turning strategy into action.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── STATS ── -->
+    <section class="about-section about-stats">
+      <div class="section-inner">
+        <div class="stats-columns">
+          <div class="stat-column reveal">
+            <div class="stat-big-num">100K+</div>
+            <div class="stat-big-label">Active Runners</div>
+            <p>Users tracking runs with TerraRun every week</p>
+          </div>
+          <div class="stat-column reveal reveal-delay-1">
+            <div class="stat-big-num">12M+</div>
+            <div class="stat-big-label">KM Tracked</div>
+            <p>Total distance recorded on the platform</p>
+          </div>
+          <div class="stat-column reveal reveal-delay-2">
+            <div class="stat-big-num">70+</div>
+            <div class="stat-big-label">Countries</div>
+            <p>Where TerraRun runners are located</p>
+          </div>
+          <div class="stat-column reveal">
+            <div class="stat-big-num">500k+</div>
+            <div class="stat-big-label">Downloads</div>
+            <p>Total downloads since launch</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── PARTNERS ── -->
+    <section class="about-section">
+      <div class="section-inner">
+        <h2 style="text-align: center; margin-bottom: 48px">
+          Partners & Supporters
+        </h2>
+        <p
+          style="
+            text-align: center;
+            color: var(--text2);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          TerraRun is proud to work with leading organizations in the running
+          and technology communities.
+        </p>
+
+        <div class="partners-grid">
+          <div class="partner-card">
+            <div class="partner-logo">🏢</div>
+            <h4>World Runner's Association</h4>
+          </div>
+          <div class="partner-card">
+            <div class="partner-logo">🏅</div>
+            <h4>International Running Federation</h4>
+          </div>
+          <div class="partner-card">
+            <div class="partner-logo">🔬</div>
+            <h4>Sports Science Institute</h4>
+          </div>
+          <div class="partner-card">
+            <div class="partner-logo">📱</div>
+            <h4>Open Source Initiative</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── ROADMAP ── -->
+    <section class="about-section">
+      <div class="section-inner">
+        <h2 style="text-align: center; margin-bottom: 64px">What's Coming</h2>
+
+        <div class="roadmap">
+          <div class="roadmap-item">
+            <div class="roadmap-date">Q3 2026</div>
+            <div class="roadmap-features">
+              <h4>iOS App Launch</h4>
+              <p>Native iOS version with feature parity to Android</p>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-date">Q4 2026</div>
+            <div class="roadmap-features">
+              <h4>Social Racing Features</h4>
+              <p>Real-time multiplayer races and live leaderboards</p>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-date">Q1 2027</div>
+            <div class="roadmap-features">
+              <h4>Advanced Analytics Dashboard</h4>
+              <p>Deep performance analysis and training insights</p>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-date">Q2 2027</div>
+            <div class="roadmap-features">
+              <h4>Web Dashboard</h4>
+              <p>Full-featured web portal for data analysis and sharing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── CTA ── -->
+    <section class="cta-section">
+      <div class="section-inner">
+        <h2>Ready to Run?</h2>
+        <p>Join 500K+ runners who have switched to TerraRun</p>
+        <a href="../#download" class="btn-download">Download TerraRun Now</a>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="nav-logo" style="margin-bottom: 16px">
+              <div class="nav-logo-icon">🏃</div>
+              <span class="nav-logo-text">TerraRun</span>
+            </div>
+            <p>
+              The open-source outdoor running app built by runners, for runners.
+              Free forever. No compromises.
+            </p>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Product</div>
+            <ul class="footer-col-links">
+              <li><a href="../#features">Features</a></li>
+              <li><a href="../#download">Download</a></li>
+              <li><a href="../docs/">Documentation</a></li>
+              <li><a href="#">Roadmap</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Resources</div>
+            <ul class="footer-col-links">
+              <li><a href="../docs/">Docs</a></li>
+              <li><a href="../#faq">FAQ</a></li>
+              <li><a href="../blog/">Blog</a></li>
+              <li><a href="#">API Docs</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Company</div>
+            <ul class="footer-col-links">
+              <li><a href="./">About</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 TerraRun. Free & Open Source.</p>
+          <span class="footer-version">v1.2.0 — Stable</span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="../script.js"></script>
+  </body>
+</html>

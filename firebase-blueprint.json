@@ -1,0 +1,54 @@
+{
+  "entities": {
+    "appSettings": {
+      "title": "AppSettings",
+      "description": "Global settings like downloads count and announcement.",
+      "type": "object",
+      "properties": {
+        "downloadsCount": { "type": "number" },
+        "announcement": { "type": "string" },
+        "featuredEventName": { "type": "string" },
+        "featuredEventDate": { "type": "string" }
+      },
+      "required": ["downloadsCount", "announcement", "featuredEventName", "featuredEventDate"]
+    },
+    "teamMember": {
+      "title": "TeamMember",
+      "description": "A team member on the About page.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "bio": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["name", "role", "bio", "createdAt"]
+    },
+    "blogPost": {
+      "title": "BlogPost",
+      "description": "A blog post.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "dateLabel": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["title", "content", "dateLabel", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/settings/global": {
+      "schema": { "$ref": "#/entities/appSettings" },
+      "description": "Global singleton settings."
+    },
+    "/teamMembers/{memberId}": {
+      "schema": { "$ref": "#/entities/teamMember" },
+      "description": "Team members list."
+    },
+    "/blogPosts/{postId}": {
+      "schema": { "$ref": "#/entities/blogPost" },
+      "description": "Blog posts list."
+    }
+  }
+}
